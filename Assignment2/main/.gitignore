@@ -1,0 +1,43 @@
+# --- Data -----------------------------------------------------------
+# The development and full datasets are large and are not source code.
+# The dev set in particular is ~58 MB, which makes no sense to track.
+reviews_devset.json
+reviewscombined.json
+*.json.gz
+
+# --- LaTeX build artifacts ------------------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.bbl
+*.blg
+
+# --- Python ---------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# --- mrjob / pipeline work directories ------------------------------
+src/.work/
+.work/
+
+# --- Rendered previews ----------------------------------------------
+report/page-*.png
+
+# --- Editor / OS ----------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Verification temp dirs -----------------------------------------
+.verify_zip/
