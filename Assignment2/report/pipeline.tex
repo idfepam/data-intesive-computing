@@ -1,0 +1,52 @@
+% Standalone TikZ pipeline figure -- included from report.tex
+\begin{tikzpicture}[
+    font=\footnotesize,
+    node distance = 6mm and 8mm,
+    every node/.style = {align=center},
+    data/.style   = {draw, trapezium, trapezium left angle=70, trapezium right angle=110,
+                     minimum width=28mm, minimum height=7mm, fill=blue!6,
+                     inner sep=2pt},
+    stage/.style  = {draw, rectangle, rounded corners=2pt, minimum width=36mm,
+                     minimum height=7mm, fill=orange!15, line width=0.6pt,
+                     inner sep=3pt},
+    mlstage/.style= {draw, rectangle, rounded corners=2pt, minimum width=42mm,
+                     minimum height=7mm, fill=cyan!10, line width=0.6pt,
+                     inner sep=3pt},
+    arr/.style    = {-Latex, thick},
+    group/.style  = {draw=gray!70, dashed, rounded corners, inner sep=3mm},
+]
+
+% ---------- Left Column: Part 1 ----------
+\node[data] (in1) {reviews\_devset.json};
+\node[stage, below=10mm of in1] (rdd1) {\textbf{Part 1: RDD API}\\flatMap, map, reduceByKey};
+\node[data, fill=green!15, below=10mm of rdd1] (out1) {\texttt{output\_rdd.txt}\\(Top 75/Cat \& Dict)};
+
+\draw[arr] (in1) -- (rdd1);
+\draw[arr] (rdd1) -- (out1);
+
+% ---------- Right Column: Part 2 & 3 ----------
+\node[data, right=14mm of in1] (in2) {Raw Reviews DataFrame};
+\node[mlstage, below=8mm of in2] (tok) {\textbf{RegexTokenizer} \&\\\textbf{StopWordsRemover}};
+\node[mlstage, below=5mm of tok] (tfidf) {\textbf{CountVectorizer} \& \textbf{IDF}};
+\node[mlstage, below=5mm of tfidf] (chisq) {\textbf{ChiSqSelector}\\(Top 2000 Features)};
+\node[mlstage, below=5mm of chisq] (norm) {\textbf{Normalizer} (L2)};
+\node[mlstage, below=5mm of norm] (svm) {\textbf{OneVsRest} (LinearSVC)};
+\node[stage, fill=purple!15, below=8mm of svm] (eval) {\textbf{MulticlassClassificationEvaluator}\\(F1 Score)};
+
+\draw[arr] (in2) -- (tok);
+\draw[arr] (tok) -- (tfidf);
+\draw[arr] (tfidf) -- (chisq);
+\draw[arr] (chisq) -- (norm);
+\draw[arr] (norm) -- (svm);
+\draw[arr] (svm) -- (eval);
+
+% Output for Part 2
+\node[data, fill=green!15, right=6mm of chisq] (out2) {\texttt{output\_ds.txt}\\(Top 2000 Dict)};
+\draw[arr] (chisq) -- (out2);
+
+% Group box for Pipeline
+\begin{pgfonlayer}{background}
+\node[group, fit=(tok)(tfidf)(chisq)(norm)(svm)] (pipelinebox) {};
+\end{pgfonlayer}
+
+\end{tikzpicture}
