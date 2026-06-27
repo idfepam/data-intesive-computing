@@ -1,0 +1,17 @@
+{
+  "totalReviews": 78829,
+  "sentimentCounts": {
+    "positive": 67522,
+    "negative": 9734,
+    "neutral": 1573
+  },
+  "profanityFailCount": 3135,
+  "ratingSentimentComparedCount": 78829,
+  "ratingSentimentDisagreementCount": 15469,
+  "bannedUsers": [
+    {
+      "userId": "A320TMDV6KCFU",
+      "impoliteCount": 4
+    }
+  ]
+}
