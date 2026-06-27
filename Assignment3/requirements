@@ -1,0 +1,12 @@
+boto3
+requests
+Pillow
+mypy-boto3-ssm
+mypy-boto3-sns
+mypy-boto3-s3
+mypy-boto3-lambda
+mypy-boto3-dynamodb
+black
+pytest
+awscli
+ministack
