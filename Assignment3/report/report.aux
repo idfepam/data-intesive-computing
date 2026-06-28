@@ -1,0 +1,27 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Problem Overview}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Input.}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Preprocessing.}{1}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Profanity check.}{1}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Sentiment analysis.}{1}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Constraints.}{2}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Methodology and Approach}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Architecture}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Serverless review-processing architecture. Uploading one review JSON to the raw bucket triggers preprocessing; the resulting object in the processed bucket triggers profanity-check and sentiment-analysis in parallel. Both downstream Lambdas write to DynamoDB. Bucket and table names are resolved at runtime from SSM Parameter Store.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:architecture}{{1}{2}{Serverless review-processing architecture. Uploading one review JSON to the raw bucket triggers preprocessing; the resulting object in the processed bucket triggers profanity-check and sentiment-analysis in parallel. Both downstream Lambdas write to DynamoDB. Bucket and table names are resolved at runtime from SSM Parameter Store}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Trigger chain}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Configuration via SSM}{3}{subsection.3.3}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}SSM parameters used by the application}{3}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Libraries and design choices}{3}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Testing}{3}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{4}{section.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Results on \texttt  {reviews\_devset.json} (78\,829 reviews).}}{4}{table.1}\protected@file@percent }
+\newlabel{tab:results}{{1}{4}{Results on \texttt {reviews\_devset.json} (78\,829 reviews)}{table.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Banned users.}{4}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Rating vs.\ text sentiment.}{4}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{4}{section.5}\protected@file@percent }
+\gdef \@abspage@last{4}
